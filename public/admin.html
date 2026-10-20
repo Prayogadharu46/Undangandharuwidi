@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Undangan Pernikahan Dharu & Widiya</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@700&display=swap">
+  <style>
+    :root {
+      --color-olive: #7c9241;
+      --color-olive-dark: #586927;
+      --color-pink: #e77395;
+      --color-pink-dark: #cf5679;
+      --color-bg: #f4f6ef;
+      --color-card: #ffffff;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --font-hand: 'Caveat', cursive;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--color-bg);
+      color: #333333;
+      padding: 24px 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* Login Box */
+    .login-wrapper {
+      max-width: 400px;
+      margin: 80px auto;
+      background: var(--color-card);
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      border: 1px solid #e2e6d8;
+    }
+
+    .brand-title {
+      font-family: var(--font-hand);
+      font-size: 32px;
+      color: var(--color-olive-dark);
+      margin-bottom: 6px;
+    }
+
+    .brand-subtitle {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #dcdfd3;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus {
+      border-color: var(--color-pink);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: filter 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+
+    .btn:active { transform: scale(0.97); }
+    .btn:hover { filter: brightness(0.93); }
+
+    .btn-primary {
+      background-color: var(--color-pink);
+      color: #ffffff;
+      width: 100%;
+    }
+
+    .btn-olive {
+      background-color: var(--color-olive);
+      color: #ffffff;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #ccc;
+      color: #555;
+    }
+
+    .btn-danger {
+      background-color: #e74c3c;
+      color: #ffffff;
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    /* Admin Dashboard */
+    .dashboard-panel {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--color-card);
+      padding: 20px 24px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .panel-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-olive-dark);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .stat-card {
+      background: var(--color-card);
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-left: 4px solid var(--color-olive);
+    }
+
+    .stat-card.pink { border-left-color: var(--color-pink); }
+    .stat-card.red { border-left-color: #e74c3c; }
+    .stat-card.orange { border-left-color: #f39c12; }
+
+    .stat-num {
+      font-size: 28px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .stat-desc {
+      font-size: 13px;
+      color: #777;
+    }
+
+    /* Table & Filter */
+    .table-container {
+      background: var(--color-card);
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      overflow-x: auto;
+    }
+
+    .table-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .search-box {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      width: 240px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #fafbf8;
+      font-weight: 600;
+      color: #555;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .badge-hadir { background-color: #27ae60; }
+    .badge-tidak-hadir { background-color: #e74c3c; }
+    .badge-ragu { background-color: #f39c12; }
+
+    .error-msg {
+      color: #e74c3c;
+      font-size: 13px;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Form Login Admin -->
+    <div class="login-wrapper" id="loginBox">
+      <h1 class="brand-title">Admin RSVP</h1>
+      <p class="brand-subtitle">The Wedding of Prayoga & Widiya</p>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="adminPassword">Password Admin</label>
+          <input type="password" id="adminPassword" class="form-input" placeholder="Masukkan password admin" required>
+        </div>
+        <button type="submit" class="btn btn-primary" id="btnLogin">Masuk Panel</button>
+        <div class="error-msg" id="loginError">Password salah, silakan coba lagi.</div>
+      </form>
+    </div>
+
+    <!-- Panel Dashboard Admin (Tampil Setelah Login) -->
+    <div class="dashboard-panel" id="dashboardPanel">
+      <div class="panel-header">
+        <div>
+          <h2 class="panel-title">Panel Pengelola Ucapan & RSVP</h2>
+          <p style="font-size: 13px; color: #777; margin-top: 2px;">Kelola ucapan pengunjung dan ekspor data kehadiran tamu</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-olive" id="btnExportCsv">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CSV
+          </button>
+          <button class="btn btn-outline" id="btnExportJson">Download JSON</button>
+          <button class="btn btn-outline" id="btnLogout">Logout</button>
+        </div>
+      </div>
+
+      <!-- Statistik -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num" id="statTotal">0</div>
+          <div class="stat-desc">Total Ucapan / Doa</div>
+        </div>
+        <div class="stat-card pink">
+          <div class="stat-num" id="statHadir">0</div>
+          <div class="stat-desc">Konfirmasi Hadir</div>
+        </div>
+        <div class="stat-card red">
+          <div class="stat-num" id="statTidakHadir">0</div>
+          <div class="stat-desc">Tidak Dapat Hadir</div>
+        </div>
+        <div class="stat-card orange">
+          <div class="stat-num" id="statRagu">0</div>
+          <div class="stat-desc">Masih Ragu</div>
+        </div>
+      </div>
+
+      <!-- Tabel Daftar Ucapan -->
+      <div class="table-container">
+        <div class="table-header-bar">
+          <h3 style="font-size: 16px; font-weight: 700;">Daftar Doa & Konfirmasi Tamu</h3>
+          <input type="text" id="searchInput" class="search-box" placeholder="Cari nama atau ucapan...">
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 18%;">Nama Tamu</th>
+              <th style="width: 42%;">Ucapan</th>
+              <th style="width: 14%;">Kehadiran</th>
+              <th style="width: 16%;">Waktu</th>
+              <th style="width: 10%; text-align: center;">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Diisi secara dinamis -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let adminToken = sessionStorage.getItem('admin_token') || '';
+    let allWishes = [];
+
+    const loginBox = document.getElementById('loginBox');
+    const dashboardPanel = document.getElementById('dashboardPanel');
+    const loginForm = document.getElementById('loginForm');
+    const adminPassword = document.getElementById('adminPassword');
+    const loginError = document.getElementById('loginError');
+
+    const statTotal = document.getElementById('statTotal');
+    const statHadir = document.getElementById('statHadir');
+    const statTidakHadir = document.getElementById('statTidakHadir');
+    const statRagu = document.getElementById('statRagu');
+    const tableBody = document.getElementById('tableBody');
+    const searchInput = document.getElementById('searchInput');
+
+    // Cek status sesi saat memuat halaman
+    async function checkAuth() {
+      if (!adminToken) {
+        showLogin();
+        return;
+      }
+      try {
+        const res = await fetch('/api/admin/check', {
+          headers: { 'Authorization': `Bearer ${adminToken}` }
+        });
+        if (res.ok) {
+          showDashboard();
+          loadAdminData();
+        } else {
+          showLogin();
+        }
+      } catch {
+        showLogin();
+      }
+    }
+
+    function showLogin() {
+      loginBox.style.display = 'block';
+      dashboardPanel.style.display = 'none';
+    }
+
+    function showDashboard() {
+      loginBox.style.display = 'none';
+      dashboardPanel.style.display = 'flex';
+    }
+
+    // Login Handle
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      loginError.style.display = 'none';
+      const password = adminPassword.value;
+
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password })
+        });
+        const data = await res.json();
+        if (res.ok && data.token) {
+          adminToken = data.token;
+          sessionStorage.setItem('admin_token', adminToken);
+          showDashboard();
+          loadAdminData();
+        } else {
+          loginError.textContent = data.error || 'Password salah!';
+          loginError.style.display = 'block';
+        }
+      } catch (err) {
+        loginError.textContent = 'Gagal menghubungi server.';
+        loginError.style.display = 'block';
+      }
+    });
+
+    // Logout
+    document.getElementById('btnLogout').addEventListener('click', () => {
+      adminToken = '';
+      sessionStorage.removeItem('admin_token');
+      showLogin();
+    });
+
+    // Load Data
+    async function loadAdminData() {
+      try {
+        const res = await fetch('/api/ucapan');
+        if (!res.ok) throw new Error('Gagal mengambil data');
+        allWishes = await res.json();
+        renderStats();
+        renderTable(allWishes);
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    function renderStats() {
+      let hadir = 0, tdk = 0, ragu = 0;
+      allWishes.forEach(item => {
+        if (item.status === 'Hadir') hadir++;
+        else if (item.status === 'Tidak Hadir') tdk++;
+        else ragu++;
+      });
+      statTotal.textContent = allWishes.length;
+      statHadir.textContent = hadir;
+      statTidakHadir.textContent = tdk;
+      statRagu.textContent = ragu;
+    }
+
+    function renderTable(list) {
+      tableBody.innerHTML = '';
+      if (list.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #888; padding: 24px;">Belum ada ucapan.</td></tr>`;
+        return;
+      }
+
+      list.forEach(item => {
+        const tr = document.createElement('tr');
+
+        let badgeClass = 'badge-hadir';
+        if (item.status === 'Tidak Hadir') badgeClass = 'badge-tidak-hadir';
+        else if (item.status === 'Masih Ragu') badgeClass = 'badge-ragu';
+
+        const dateStr = new Date(item.createdAt).toLocaleString('id-ID', {
+          dateStyle: 'medium',
+          timeStyle: 'short'
+        });
+
+        tr.innerHTML = `
+          <td><strong>${item.name}</strong></td>
+          <td style="line-height: 1.4;">${item.message}</td>
+          <td><span class="badge ${badgeClass}">${item.status}</span></td>
+          <td style="color: #666; font-size: 13px;">${dateStr}</td>
+          <td style="text-align: center;">
+            <button class="btn btn-danger" onclick="deleteWish('${item.id}')">Hapus</button>
+          </td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    // Filter Search
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      const filtered = allWishes.filter(item => 
+        item.name.toLowerCase().includes(q) || 
+        item.message.toLowerCase().includes(q)
+      );
+      renderTable(filtered);
+    });
+
+    // Delete Wish
+    window.deleteWish = async function(id) {
+      if (!confirm('Hapus ucapan ini secara permanen?')) return;
+      try {
+        const res = await fetch(`/api/ucapan/${id}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${adminToken}` }
+        });
+        if (!res.ok) throw new Error('Gagal menghapus ucapan');
+        allWishes = allWishes.filter(x => x.id !== id);
+        renderStats();
+        renderTable(allWishes);
+      } catch (err) {
+        alert(err.message);
+      }
+    };
+
+    // Export CSV
+    document.getElementById('btnExportCsv').addEventListener('click', () => {
+      fetch('/api/admin/export/csv', {
+        headers: { 'Authorization': `Bearer ${adminToken}` }
+      })
+      .then(res => res.blob())
+      .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data-ucapan-dharu-widiya.csv';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+    });
+
+    // Export JSON
+    document.getElementById('btnExportJson').addEventListener('click', () => {
+      fetch('/api/admin/export/json', {
+        headers: { 'Authorization': `Bearer ${adminToken}` }
+      })
+      .then(res => res.blob())
+      .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data-ucapan-dharu-widiya.json';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+    });
+
+    checkAuth();
+  </script>
+</body>
+</html>

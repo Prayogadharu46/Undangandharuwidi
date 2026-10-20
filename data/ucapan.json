@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ucp_1792438513563_wssgh",
+    "name": "Dharu",
+    "message": "Selamat ya ru",
+    "status": "Tidak Hadir",
+    "createdAt": "2026-10-19T19:35:13.563Z",
+    "ownerToken": "f24f6e06b50145dba7283ce5ddfed95f"
+  },
+  {
+    "id": "ucp_1",
+    "name": "Rahel",
+    "message": "Happy Wedding Mille & Dharu! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah.",
+    "status": "Hadir",
+    "createdAt": "2026-10-18T10:15:00.000Z",
+    "ownerToken": "system_sample_1"
+  },
+  {
+    "id": "ucp_2",
+    "name": "Ayu dan Fahmi",
+    "message": "Selamat ya Widiya & Dharu, lancar lancar semuanya sampai hari H Aamiin!",
+    "status": "Hadir",
+    "createdAt": "2026-10-18T11:30:00.000Z",
+    "ownerToken": "system_sample_2"
+  },
+  {
+    "id": "ucp_3",
+    "name": "Dimas Pratama",
+    "message": "Selamat brother Dharu! Semoga lancar dan berkah selalu pernikahannya.",
+    "status": "Hadir",
+    "createdAt": "2026-10-18T14:20:00.000Z",
+    "ownerToken": "system_sample_3"
+  },
+  {
+    "id": "ucp_4",
+    "name": "Siti Nurhaliza",
+    "message": "Barakallahu lakum wa baraka alaikum. Bahagia selalu yaa kalian!",
+    "status": "Hadir",
+    "createdAt": "2026-10-18T16:45:00.000Z",
+    "ownerToken": "system_sample_4"
+  },
+  {
+    "id": "ucp_5",
+    "name": "Budi Santoso",
+    "message": "Mohon maaf belum bisa hadir secara langsung karena di luar kota, doa terbaik untuk kedua mempelai.",
+    "status": "Tidak Hadir",
+    "createdAt": "2026-10-18T17:10:00.000Z",
+    "ownerToken": "system_sample_5"
+  },
+  {
+    "id": "ucp_6",
+    "name": "Rina Anggraeni",
+    "message": "Masih menyesuaikan jadwal dinas, diusahakan banget bisa hadir ya Dharu & Widiya!",
+    "status": "Masih Ragu",
+    "createdAt": "2026-10-18T18:00:00.000Z",
+    "ownerToken": "system_sample_6"
+  }
+]

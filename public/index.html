@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Wedding of Prayoga & Widiya</title>
+  
+  <!-- Open Graph Meta Tags untuk WhatsApp & Media Sosial -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Wedding of Prayoga & Widiya">
+  <meta property="og:description" content="Undangan Pernikahan Digital Prayoga Imandharu, S.T. & Widiya Putri, S.E. - Selasa, 31 Agustus 2027">
+  <meta property="og:image" content="assets/images/Cover.png">
+  <meta property="og:url" content="">
+  <meta name="theme-color" content="#f3f5ee">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpg" href="assets/images/icon.jpg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Preloader Sederhana Bertema Undangan -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-spinner"></div>
+    <div class="preloader-text">Memuat Undangan Cinta...</div>
+  </div>
+
+  <!-- Audio Background Player -->
+  <audio id="bgMusic" src="assets/music/lagu.mp3" loop preload="auto"></audio>
+
+  <!-- Container Utama (Centered on Desktop, 9:16 Mobile-First) -->
+  <div class="app-wrapper">
+    <div class="invitation-screen" id="invitationScreen">
+
+      <!-- Tombol Audio Melayang (Pojok Kanan Atas) -->
+      <button class="audio-btn" id="audioBtn" title="Putar / Jeda Musik">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+      </button>
+
+      <!-- Viewport Seluruh Slide (Pindah hanya dengan Tap Layar) -->
+      <div class="slides-viewport" id="slidesViewport">
+
+        <!-- ================================================================
+             SLIDE 1: COVER
+             ================================================================ -->
+        <section class="slide slide-cover active" id="slide1" data-index="0">
+          <div class="envelope-wrapper stagger-el stagger-delay-1">
+            <img src="assets/images/amplop.png" alt="Undangan Pernikahan" class="envelope-img">
+          </div>
+
+          <div class="cover-couple-name stagger-el stagger-delay-2">Widiya & Dharu</div>
+          <div class="cover-date-text stagger-el stagger-delay-3">31 Agustus 2028</div>
+
+          <div class="cover-guest-box stagger-el stagger-delay-4">
+            <div class="cover-guest-for">Kepada Yth. Bapak/Ibu/Saudara/i:</div>
+            <div class="cover-guest-name" id="coverGuestName">Tamu Undangan</div>
+          </div>
+
+          <div class="stagger-el stagger-delay-5">
+            <button class="btn-open-invitation" id="btnOpenInvitation">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Open Invitation
+            </button>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 2: MEMPELAI (OVERVIEW)
+             ================================================================ -->
+        <section class="slide" id="slide2" data-index="1">
+          <div class="couple-tulip-container stagger-el stagger-delay-1">
+            <img src="assets/images/tulip.png" alt="Widiya & Dharu" class="couple-tulip-img">
+          </div>
+
+          <div class="couple-name-widiya stagger-el stagger-delay-2">Widiya</div>
+          <div class="couple-and stagger-el stagger-delay-3">- and -</div>
+          <div class="couple-name-dharu stagger-el stagger-delay-4">Dharu</div>
+          <div class="couple-date stagger-el stagger-delay-5">31 Agustus 2028</div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 3: SURAH
+             ================================================================ -->
+        <section class="slide" id="slide3" data-index="2">
+          <div class="surah-card">
+            <h2 class="surah-title stagger-el stagger-delay-1">Q.S Ar Rum : 21</h2>
+            <p class="surah-ayah stagger-el stagger-delay-2">
+              "Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya. Dia menjadikan di antaramu rasa cinta dan kasih sayang."
+            </p>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 4: SALAM PEMBUKA
+             ================================================================ -->
+        <section class="slide" id="slide4" data-index="3">
+          <div class="salam-container">
+            <div class="salam-text stagger-el stagger-delay-1">
+              with the grace and blessings from<br>
+              Allah SWT, we warmly invite you to<br>
+              the wedding of :
+            </div>
+            <img src="assets/images/kursi-meja.png" alt="Wedding Chairs" class="salam-illustration stagger-el stagger-delay-2">
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 5: MEMPELAI PRIA
+             ================================================================ -->
+        <section class="slide" id="slide5" data-index="4">
+          <div class="profile-frame-container stagger-el stagger-delay-1">
+            <img src="assets/images/pria.png" alt="Prayoga Imandharu, S.T." class="profile-frame-img">
+          </div>
+          <h2 class="profile-name-groom stagger-el stagger-delay-2">Prayoga Imandharu, S.T.</h2>
+          <p class="profile-parents stagger-el stagger-delay-3">Putra Ketiga dari Bapak dan Ibu</p>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 6: MEMPELAI WANITA
+             ================================================================ -->
+        <section class="slide" id="slide6" data-index="5">
+          <div class="profile-frame-container stagger-el stagger-delay-1">
+            <img src="assets/images/wanita.png" alt="Widiya Putri, S.E." class="profile-frame-img">
+          </div>
+          <h2 class="profile-name-bride stagger-el stagger-delay-2">Widiya Putri, S.E.</h2>
+          <p class="profile-parents pink stagger-el stagger-delay-3">Putri Ketiga dari Bapak dan Ibu</p>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 7: AKAD NIKAH & COUNTDOWN
+             ================================================================ -->
+        <section class="slide" id="slide7" data-index="6">
+          <img src="assets/images/gapura.png" alt="Gapura Akad" class="event-header-img stagger-el stagger-delay-1">
+          <h2 class="event-title stagger-el stagger-delay-2">Akad Nikah</h2>
+          <div class="event-date stagger-el stagger-delay-3">Kamis, 31 Agustus 2028</div>
+
+          <!-- Save The Date Countdown Real-Time -->
+          <div class="countdown-block stagger-el stagger-delay-4">
+            <div class="countdown-title">Save The Date</div>
+            <div class="countdown-grid">
+              <div class="countdown-item">
+                <span class="countdown-num" id="cdDays">00</span>
+                <span class="countdown-label">Days</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-num" id="cdHours">00</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-num" id="cdMinutes">00</span>
+                <span class="countdown-label">Minutes</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-num" id="cdSeconds">00</span>
+                <span class="countdown-label">Seconds</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-details stagger-el stagger-delay-5">
+            <div class="event-location">Gedung / Tempat Akad Nikah</div>
+            <div class="event-time">08.00 s/d 10.00 WITA</div>
+            <a href="https://maps.app.goo.gl/wj9Tb6hoLGNCB11m7" target="_blank" rel="noopener" class="btn-gmaps">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              Google Maps
+            </a>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 8: RESEPSI
+             ================================================================ -->
+        <section class="slide" id="slide8" data-index="7">
+          <img src="assets/images/gedung.png" alt="Gedung Resepsi" class="event-header-img stagger-el stagger-delay-1">
+          <h2 class="event-title olive stagger-el stagger-delay-2">Resepsi</h2>
+          <div class="event-date olive stagger-el stagger-delay-3">Kamis, 31 Agustus 2028</div>
+
+          <div class="event-details stagger-el stagger-delay-4">
+            <div class="event-location pink">Gedung / Tempat Resepsi</div>
+            <div class="event-time pink">16.00 s/d 18.00 WITA</div>
+            <a href="https://maps.app.goo.gl/wj9Tb6hoLGNCB11m7" target="_blank" rel="noopener" class="btn-gmaps">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              Google Maps
+            </a>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 9: GALERI FOTO (COLLAGE & LIGHTBOX)
+             ================================================================ -->
+        <section class="slide" id="slide9" data-index="8">
+          <div class="gallery-collage">
+            <!-- Row 1: Foto Atas Lebar -->
+            <div class="gallery-photo-card wide stagger-el stagger-delay-1" data-caption="Prayoga Imandharu & Widiya Putri">
+              <img src="assets/images/galeri/foto_1.jpg" alt="Galeri 1" loading="lazy">
+            </div>
+
+            <!-- Row 2: Dua Foto Bersebelahan -->
+            <div class="gallery-row stagger-el stagger-delay-2">
+              <div class="gallery-photo-card half" data-caption="Genggaman Tangan Penuh Kasih">
+                <img src="assets/images/galeri/foto_2.jpg" alt="Galeri 2" loading="lazy">
+              </div>
+              <div class="gallery-photo-card half" data-caption="Widiya Putri, S.E.">
+                <img src="assets/images/galeri/foto_3.jpg" alt="Galeri 3" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Row 3: Foto Tengah Lebar -->
+            <div class="gallery-photo-card wide stagger-el stagger-delay-3" data-caption="Melangkah Bersama Menuju Masa Depan">
+              <img src="assets/images/galeri/foto_4.jpg" alt="Galeri 4" loading="lazy">
+            </div>
+
+            <!-- Row 4: Dua Foto Bawah Bersebelahan -->
+            <div class="gallery-row stagger-el stagger-delay-4">
+              <div class="gallery-photo-card half" data-caption="Cinta Dalam Kesederhanaan">
+                <img src="assets/images/galeri/foto_5.jpg" alt="Galeri 5" loading="lazy">
+              </div>
+              <div class="gallery-photo-card half" data-caption="Duduk Berdampingan Mengukir Bahagia">
+                <img src="assets/images/galeri/foto_6.jpg" alt="Galeri 6" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 10: CASHLESS (AMPLOP DIGITAL)
+             ================================================================ -->
+        <section class="slide" id="slide10" data-index="9">
+          <div class="cashless-container">
+            <!-- Tumpukan Kado -->
+            <svg class="cashless-gift-img stagger-el stagger-delay-1" viewBox="0 0 200 160" fill="none">
+              <path d="M40 70h60v50H40z M100 60h60v60h-60z M60 30h80v40H60z" stroke="#e77395" stroke-width="3" fill="#ffeaf0"/>
+              <path d="M70 70v50 M130 60v60 M100 30v40 M60 50h80 M40 95h60 M100 90h60" stroke="#e77395" stroke-width="2.5"/>
+              <path d="M100 30 C90 10 70 10 80 30 C70 10 50 15 65 30 M100 30 C110 10 130 10 120 30 C130 10 150 15 135 30" stroke="#e77395" stroke-width="3" fill="#f7a2ba"/>
+            </svg>
+
+            <div class="cashless-quote stagger-el stagger-delay-2">
+              Sharing the joy with u<br>is our greatest gift
+            </div>
+
+            <div class="cashless-title stagger-el stagger-delay-3">Cashless</div>
+
+            <!-- Rekening 1: Pria (BCA) -->
+            <div class="cashless-card-box stagger-el stagger-delay-4">
+              <div class="bank-logo-title">Bank BCA</div>
+              <div class="bank-account-num">Belum punya rekening BCA</div>
+              <div class="bank-account-holder">a.n Prayoga Imandharu</div>
+              <button class="btn-copy-account" data-account="1234567890">
+                <svg viewBox="0 0 24 24">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+                Copy account
+              </button>
+            </div>
+
+            <!-- Rekening 2: Wanita (BNI) -->
+            <div class="cashless-card-box pink-border stagger-el stagger-delay-5">
+              <div class="bank-logo-title">Bank BNI</div>
+              <div class="bank-account-num">2029377801</div>
+              <div class="bank-account-holder">a.n Widiya Putri</div>
+              <button class="btn-copy-account pink" data-account="2029377801">
+                <svg viewBox="0 0 24 24">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+                Copy account
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 11: RSVP & KOMENTAR UCAPAN
+             ================================================================ -->
+        <section class="slide" id="slide11" data-index="10">
+          <div class="rsvp-header-box stagger-el stagger-delay-1">
+            <h2 class="rsvp-title">RSVP</h2>
+            <div class="rsvp-subtitle">Konfirmasi Kehadiran & Ucapan untuk widaru</div>
+          </div>
+
+          <div class="rsvp-card-wrapper stagger-el stagger-delay-2">
+            <div class="rsvp-comments-count" id="commentsCount">0 Comments</div>
+
+            <!-- 3 Stat Boxes -->
+            <div class="rsvp-stats-grid">
+              <div class="rsvp-stat-box">
+                <span class="rsvp-stat-num" id="statHadir">0</span>
+                <span class="rsvp-stat-label">Hadir</span>
+              </div>
+              <div class="rsvp-stat-box">
+                <span class="rsvp-stat-num" id="statTidakHadir">0</span>
+                <span class="rsvp-stat-label">Tidak Hadir</span>
+              </div>
+              <div class="rsvp-stat-box">
+                <span class="rsvp-stat-num" id="statRagu">0</span>
+                <span class="rsvp-stat-label">Masih Ragu</span>
+              </div>
+            </div>
+
+            <!-- Form Pengiriman Ucapan -->
+            <form class="rsvp-form" id="rsvpForm">
+              <input type="text" id="rsvpName" class="rsvp-input" placeholder="Nama" maxlength="50" required>
+              <textarea id="rsvpMessage" class="rsvp-textarea" placeholder="Ucapan" maxlength="300" required></textarea>
+              <select id="rsvpStatus" class="rsvp-select">
+                <option value="Hadir">Hadir</option>
+                <option value="Tidak Hadir">Tidak Hadir</option>
+                <option value="Masih Ragu">Masih Ragu</option>
+              </select>
+              <button type="submit" class="btn-rsvp-submit">Kirim</button>
+            </form>
+
+            <!-- Daftar Ucapan Scrollable -->
+            <div class="rsvp-comments-list" id="commentsList">
+              <!-- Item ucapan dimuat secara dinamis via app.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 12: PENUTUP (POLAROID & FILM STRIP ANIMATION)
+             ================================================================ -->
+        <section class="slide" id="slide12" data-index="11">
+          <div class="closing-container">
+            <div class="closing-heading stagger-el stagger-delay-1">
+              See you on our Wedding Day <span class="heart-icon">♥</span>
+            </div>
+
+            <!-- Stage Animasi Kamera Polaroid & Film Strip -->
+            <div class="camera-film-stage stagger-el stagger-delay-2">
+              <img src="assets/images/kamera.png" alt="Polaroid Camera" class="polaroid-camera-img">
+
+              <div class="film-strip-descending">
+                <div class="film-frame">
+                  <img src="assets/images/galeri/foto_1.jpg" alt="Polaroid 1">
+                </div>
+                <div class="film-frame">
+                  <img src="assets/images/galeri/foto_4.jpg" alt="Polaroid 2">
+                </div>
+                <div class="film-frame">
+                  <img src="assets/images/galeri/foto_6.jpg" alt="Polaroid 3">
+                </div>
+              </div>
+            </div>
+
+            <!-- Kredit Pembuat Sesuai Instruksi Pengguna -->
+            <div class="closing-credits stagger-el stagger-delay-3">
+              Dibuat dengan cinta oleh Widi & Dharu
+            </div>
+          </div>
+        </section>
+
+      </div> <!-- /slides-viewport -->
+
+      <!-- Petunjuk Tap Layar (Berkedip Lembut) -->
+      <div class="tap-hint hidden" id="tapHint">Tap layar untuk lanjut</div>
+
+      <!-- Bar Navigasi Bawah (5 Ikon dengan Latar Gradasi Pink) -->
+      <nav class="bottom-nav" id="bottomNav">
+        <!-- 1: Amplop (Awal / Mempelai) -->
+        <button class="nav-item active" data-target="1" title="Awal">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+            <path d="M12 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
+          </svg>
+        </button>
+
+        <!-- 2: Mempelai (Couple) -->
+        <button class="nav-item" data-target="4" title="Mempelai">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </button>
+
+        <!-- 3: Kalender (Acara Akad & Resepsi) -->
+        <button class="nav-item" data-target="6" title="Acara">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="3" ry="3"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+            <circle cx="12" cy="15" r="1.5" fill="#ffffff"/>
+          </svg>
+        </button>
+
+        <!-- 4: Galeri (Album) -->
+        <button class="nav-item" data-target="8" title="Galeri">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="3" ry="3"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </button>
+
+        <!-- 5: RSVP (Ucapan) -->
+        <button class="nav-item" data-target="10" title="RSVP">
+          <svg viewBox="0 0 24 24">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+        </button>
+      </nav>
+
+    </div> <!-- /invitation-screen -->
+  </div> <!-- /app-wrapper -->
+
+  <!-- Lightbox Modal untuk Foto Galeri -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <button class="lightbox-close-btn" id="lightboxClose" title="Tutup">&times;</button>
+    <img src="" alt="Detail Foto" class="lightbox-img" id="lightboxImg">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- Toast Notifikasi (Salin Rekening / Status) -->
+  <div class="toast-notice" id="toastNotice">Nomor rekening disalin!</div>
+
+  <!-- Script Konfigurasi & Aplikasi -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
