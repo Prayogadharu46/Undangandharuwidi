@@ -518,14 +518,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const seedWishes = [
           {
             id: 'local_1',
-            name: 'Rahel',
-            message: 'Happy Wedding Mille & Dharu! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah.',
+            name: 'Bonggo',
+            message: 'Happy Wedding Widiya & Dharu! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah.',
             status: 'Hadir',
             createdAt: new Date(Date.now() - 3600000 * 24 * 3).toISOString()
           },
+           {
+            id: 'local_3',
+            name: 'Choi Soobin',
+            message: '행복한 결혼식되세요 위디야와 다루님',
+            status: 'Tidak Hadir',
+            createdAt: new Date(Date.now() - 3600000 * 1).toISOString()
+          },
+          {
+            id: 'local_4',
+            name: 'Kazuha',
+            message: '위디야와 함께 이 세상과 내세에서 당신의 삶이 영원히 지속되기를 바랍니다.',
+            status: 'Tidak Hadir',
+            createdAt: new Date(Date.now() - 3600000 * 3).toISOString()
+          },
           {
             id: 'local_2',
-            name: 'Ayu dan Fahmi',
+            name: 'Desi Fitriani',
             message: 'Selamat ya Widiya & Dharu, lancar lancar semuanya sampai hari H Aamiin!',
             status: 'Hadir',
             createdAt: new Date(Date.now() - 3600000 * 12).toISOString()
